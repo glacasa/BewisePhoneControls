@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bewise.Phone", "Bewise.Phone.csproj", "{63AC4576-50CC-4EFF-BFF9-8FD378AC7861}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlSamples", "..\ControlSamples\ControlSamples.csproj", "{97456D1B-CF76-4338-8EFD-8D3C7297432D}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs01
+		SccProjectUniqueName0 = Bewise.Phone.csproj
+		SccProjectName0 = .
+		SccAuxPath0 = https://tfs.codeplex.com/tfs/tfs01
+		SccLocalPath0 = .
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName1 = ..\\ControlSamples\\ControlSamples.csproj
+		SccProjectName1 = ../ControlSamples
+		SccAuxPath1 = https://tfs.codeplex.com/tfs/tfs01
+		SccLocalPath1 = ..\\ControlSamples
+		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{63AC4576-50CC-4EFF-BFF9-8FD378AC7861}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63AC4576-50CC-4EFF-BFF9-8FD378AC7861}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63AC4576-50CC-4EFF-BFF9-8FD378AC7861}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63AC4576-50CC-4EFF-BFF9-8FD378AC7861}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97456D1B-CF76-4338-8EFD-8D3C7297432D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97456D1B-CF76-4338-8EFD-8D3C7297432D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97456D1B-CF76-4338-8EFD-8D3C7297432D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{97456D1B-CF76-4338-8EFD-8D3C7297432D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97456D1B-CF76-4338-8EFD-8D3C7297432D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97456D1B-CF76-4338-8EFD-8D3C7297432D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

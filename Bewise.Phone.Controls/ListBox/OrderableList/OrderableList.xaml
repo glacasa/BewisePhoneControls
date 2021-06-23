@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="Bewise.Phone.OrderableList" x:Name="theList"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" 
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+    <UserControl.Resources>
+
+        <Storyboard x:Name="FadeOut">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="mainList">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.75"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="mainList">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.95"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="mainList">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.95"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Name="FadeIn" Completed="FadeIn_Completed">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="mainList">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.75"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="mainList">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.95"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="mainList">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.95"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Name="RestoreImagePosition">
+            <DoubleAnimation x:Name="RestoreImagePositionAnimation" Duration="0:0:0.2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" Storyboard.TargetName="movingImage" />
+        </Storyboard>
+
+        <Storyboard x:Name="SetImagePosition">
+            <DoubleAnimation x:Name="SetImagePositionAnimation" Duration="0:0:0" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" Storyboard.TargetName="movingImage" />
+        </Storyboard>
+
+    </UserControl.Resources>
+    <ScrollViewer>
+        <Grid x:Name="mainGrid">
+            <ItemsControl x:Name="mainList" RenderTransformOrigin="0.5,0.5">
+                <ItemsControl.RenderTransform>
+                    <CompositeTransform/>
+                </ItemsControl.RenderTransform>
+                <ItemsControl.Template>
+                    <ControlTemplate>
+                        <StackPanel>
+                            <ItemsPresenter/>
+                        </StackPanel>
+                    </ControlTemplate>
+                </ItemsControl.Template>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Loaded="Grid_Loaded" Background="Transparent">
+                            <Grid.RenderTransform>
+                                <CompositeTransform TranslateY="0" />
+                            </Grid.RenderTransform>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <ContentPresenter ContentTemplate="{Binding ElementName=theList, Path=ItemTemplate}" Content="{Binding DataContext}" />
+                            <Image Source="{Binding ImageUrl}" Grid.Column="1" Margin="5"
+                            ManipulationStarted="rect_ManipulationStarted" ManipulationDelta="rect_ManipulationDelta" ManipulationCompleted="rect_ManipulationCompleted" />
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <Image x:Name="movingImage" Visibility="Collapsed" Stretch="None" VerticalAlignment="Top">
+                <Image.RenderTransform>
+                    <TranslateTransform x:Name="movingImageTransform"></TranslateTransform>
+                </Image.RenderTransform>
+            </Image>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

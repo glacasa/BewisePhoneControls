@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{63AC4576-50CC-4EFF-BFF9-8FD378AC7861}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bewise.Phone</RootNamespace>
+    <AssemblyName>Bewise.Phone</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Reactive" />
+    <Reference Include="Microsoft.Xna.Framework" />
+    <Reference Include="Microsoft.Xna.Framework.Input.Touch" />
+    <Reference Include="System.Observable" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Calendar\Calendar.xaml.cs">
+      <DependentUpon>Calendar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Calendar\DateTimeTypeConverter.cs" />
+    <Compile Include="Calendar\DynamicCalendar.xaml.cs">
+      <DependentUpon>DynamicCalendar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converters\BoolToVisibilityInverseConverter.cs" />
+    <Compile Include="Collections\ItemObservableCollection.cs" />
+    <Compile Include="Converters\StringToLowerConverter.cs" />
+    <Compile Include="Converters\StringToUpperConverter.cs" />
+    <Compile Include="ExpanderControl\ExpanderControl.xaml.cs">
+      <DependentUpon>ExpanderControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Facebook\Entities\FacebookFriendsList.cs" />
+    <Compile Include="Facebook\Entities\FacebookNewsfeed.cs" />
+    <Compile Include="Facebook\Entities\FacebookRawObject.cs" />
+    <Compile Include="Facebook\Entities\FacebookUser.cs" />
+    <Compile Include="Facebook\GetNewsfeedEventArgs.cs" />
+    <Compile Include="Facebook\UserCanceledEventArgs.cs" />
+    <Compile Include="Flag\Flag.xaml.cs">
+      <DependentUpon>Flag.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Google\GoogleService.cs" />
+    <Compile Include="Google\Query\Parameters\BaseQuery.cs" />
+    <Compile Include="Google\Query\Parameters\BlogQuery.cs" />
+    <Compile Include="Google\Query\Parameters\BookQuery.cs" />
+    <Compile Include="Google\Query\Parameters\BookQueryParameters.cs" />
+    <Compile Include="Google\Query\Parameters\GeneralQueryParameters.cs" />
+    <Compile Include="Google\Query\Parameters\GoogleQueryConsts.cs" />
+    <Compile Include="Google\Query\Parameters\ImageQuery.cs" />
+    <Compile Include="Google\Query\Parameters\ImageQueryParameters.cs" />
+    <Compile Include="Google\Query\Parameters\Interfaces\BaseQueryParameter.cs" />
+    <Compile Include="Google\Query\Parameters\Interfaces\IGoogleQuery.cs" />
+    <Compile Include="Google\Query\Parameters\Interfaces\IQueryParameter.cs" />
+    <Compile Include="Google\Query\Parameters\LocalCoordinate.cs" />
+    <Compile Include="Google\Query\Parameters\LocalQuery.cs" />
+    <Compile Include="Google\Query\Parameters\LocalQueryParameters.cs" />
+    <Compile Include="Google\Query\Parameters\NewsQuery.cs" />
+    <Compile Include="Google\Query\Parameters\NewsQueryParameters.cs" />
+    <Compile Include="Google\Query\Parameters\PatentQuery.cs" />
+    <Compile Include="Google\Query\Parameters\PatentQueryParameters.cs" />
+    <Compile Include="Google\Query\Parameters\QueryParameterEnums.cs" />
+    <Compile Include="Google\Query\Parameters\TranslateQuery.cs" />
+    <Compile Include="Google\Query\Parameters\TranslateQueryParameters.cs" />
+    <Compile Include="Google\Query\Parameters\VideoQuery.cs" />
+    <Compile Include="Google\Query\Parameters\WebQuery.cs" />
+    <Compile Include="Google\Query\Parameters\WebQueryParameters.cs" />
+    <Compile Include="Google\Query\Results\Cursor.cs" />
+    <Compile Include="Google\Query\Results\GoogleBlogResult.cs" />
+    <Compile Include="Google\Query\Results\GoogleBookResult.cs" />
+    <Compile Include="Google\Query\Results\GoogleImageResult.cs" />
+    <Compile Include="Google\Query\Results\GoogleLocalResult.cs" />
+    <Compile Include="Google\Query\Results\GoogleNewsResult.cs" />
+    <Compile Include="Google\Query\Results\GooglePatentResult.cs" />
+    <Compile Include="Google\Query\Results\GoogleResultData.cs" />
+    <Compile Include="Google\Query\Results\GoogleResultSet.cs" />
+    <Compile Include="Google\Query\Results\GoogleVideoResult.cs" />
+    <Compile Include="Google\Query\Results\GoogleWebResult.cs" />
+    <Compile Include="Google\Query\Results\Interfaces\IGoogleResult.cs" />
+    <Compile Include="Google\Query\Results\Page.cs" />
+    <Compile Include="HtmlDisplayer\HtmlDisplayer.xaml.cs">
+      <DependentUpon>HtmlDisplayer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InappToast\InappToast.xaml.cs">
+      <DependentUpon>InappToast.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListBox\ImprovedListBox.cs" />
+    <Compile Include="ListBox\InfiniteList\InfiniteList.xaml.cs">
+      <DependentUpon>InfiniteList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListBox\JumpList\GridLetter.xaml.cs">
+      <DependentUpon>GridLetter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListBox\JumpList\JumpList.xaml.cs">
+      <DependentUpon>JumpList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListBox\JumpList\JumpListItem.cs" />
+    <Compile Include="ListBox\JumpList\JumpListLetter.cs" />
+    <Compile Include="ListBox\OrderableList\OrderableList.xaml.cs">
+      <DependentUpon>OrderableList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MessageBar\MessageBar.xaml.cs">
+      <DependentUpon>MessageBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Collections\PumpList.cs" />
+    <Compile Include="Facebook\FacebookHelper.cs" />
+    <Compile Include="Facebook\FacebookHomeTown.cs" />
+    <Compile Include="Facebook\FacebookLoginControl.xaml.cs">
+      <DependentUpon>FacebookLoginControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Facebook\GetFriendsEventArgs.cs" />
+    <Compile Include="Rating\RatingButton.cs" />
+    <Compile Include="Rating\RatingControl.xaml.cs">
+      <DependentUpon>RatingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SearchBox\SearchBox.xaml.cs">
+      <DependentUpon>SearchBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListBox\JumpList\StringWithIndexComparer.cs" />
+    <Compile Include="TileButton\Tile.xaml.cs">
+      <DependentUpon>Tile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TileButton\TileButton.xaml.cs">
+      <DependentUpon>TileButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tools.cs" />
+    <Compile Include="TransitioningPage.cs" />
+    <Compile Include="VolumeGrid\VolumeGrid.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Calendar\Calendar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Calendar\DynamicCalendar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ExpanderControl\ExpanderControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Flag\Flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="HtmlDisplayer\HtmlDisplayer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InappToast\InappToast.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ListBox\InfiniteList\InfiniteList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ListBox\JumpList\GridLetter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ListBox\JumpList\JumpList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Facebook\FacebookLoginControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ListBox\OrderableList\OrderableList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MessageBar\MessageBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Rating\RatingControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SearchBox\SearchBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TileButton\Tile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TileButton\TileButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\appbar.feature.search.rest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Dark\appbar.add.rest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Dark\appbar.basecircle.rest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Dark\appbar.edit.rest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Dark\appbar.transport.back.rest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Dark\appbar.transport.play.rest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Light\appbar.add.rest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Light\appbar.basecircle.rest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Light\appbar.edit.rest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Light\appbar.transport.back.rest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Light\appbar.transport.play.rest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ListBox\OrderableList\grip.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="HtmlDisplayer\HtmlTemplate.html" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

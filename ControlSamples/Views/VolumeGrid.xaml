@@ -1,0 +1,75 @@
+﻿<Bewise:TransitioningPage 
+    x:Class="ControlSamples.Views.VolumeGrid"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Bewise="clr-namespace:Bewise.Phone;assembly=Bewise.Phone" FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Bewise:VolumeGrid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Grid Background="{StaticResource PhoneBackgroundBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border Background="{StaticResource PhoneBackgroundBrush}" CornerRadius="8" BorderThickness="1" BorderBrush="{StaticResource PhoneForegroundBrush}" Grid.RowSpan="2"/>
+                <TextBlock VerticalAlignment="Center" Text="Screen 1" Style="{StaticResource PhoneTextTitle1Style}"/>
+                <ListBox Grid.Row="1">
+                    <ListBoxItem Content="Test1"/>
+                    <ListBoxItem Content="Test2"/>
+                    <ListBoxItem Content="Test3"/>
+                    <ListBoxItem Content="Test4"/>
+                    <ListBoxItem Content="Test5"/>
+                </ListBox>
+            </Grid>
+            <Grid  Background="{StaticResource PhoneBackgroundBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border Background="{StaticResource PhoneBackgroundBrush}" CornerRadius="8" BorderThickness="1" BorderBrush="{StaticResource PhoneForegroundBrush}" Grid.RowSpan="2"/>
+                <TextBlock VerticalAlignment="Center" Text="Screen 2" Style="{StaticResource PhoneTextTitle1Style}"/>
+                <TextBox Grid.Row="1" />
+            </Grid>
+            <Grid  Background="{StaticResource PhoneBackgroundBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border Background="{StaticResource PhoneBackgroundBrush}" CornerRadius="8" BorderThickness="1" BorderBrush="{StaticResource PhoneForegroundBrush}" Grid.RowSpan="2"/>
+                <TextBlock VerticalAlignment="Center" Text="Screen 3" Style="{StaticResource PhoneTextTitle1Style}"/>
+                <Image Grid.Row="1" Source="..\Background.png" Margin="20">
+                </Image>
+            </Grid>
+            <Grid  Background="{StaticResource PhoneBackgroundBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border Background="{StaticResource PhoneBackgroundBrush}" CornerRadius="8" BorderThickness="1" BorderBrush="{StaticResource PhoneForegroundBrush}" Grid.RowSpan="2"/>
+                <TextBlock VerticalAlignment="Center" Text="Screen 4" Style="{StaticResource PhoneTextTitle1Style}"/>
+            </Grid>
+        </Bewise:VolumeGrid>
+    </Grid>
+ 
+    <!--Sample code showing usage of ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
+                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+
+</Bewise:TransitioningPage>

@@ -1,0 +1,123 @@
+﻿<UserControl x:Class="Bewise.Phone.Calendar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:BewisePhoneControls="clr-namespace:Bewise.Phone" mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="400" d:DesignWidth="480">
+    <Grid x:Name="LayoutRoot" Background="Transparent" HorizontalAlignment="Stretch" ManipulationCompleted="calendarGrid_ManipulationCompleted" RenderTransformOrigin="0.5, 0.5">
+        <Grid.Resources>
+            <Style x:Key="LeftRightButtonStyle" TargetType="Button">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver"/>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="0:0:0.1" To="0.5" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Border"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Grid>
+                                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" Name="Border"/>
+                                </Grid>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <BewisePhoneControls:Tools x:Key="Tools"/>
+            <Style x:Key="calendarEntryButtonStyle" TargetType="Button">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <Grid>
+                                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5"/>
+                                </Grid>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="3"  Name="dateText" Text="21" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="{StaticResource PhoneFontSizeMedium}" Margin="0,0,0,10"></TextBlock>
+        <Button Grid.Column="0" Grid.Row="2" Click="monthLeftButtonButton_Click" Style="{StaticResource LeftRightButtonStyle}" VerticalAlignment="Center">
+            <Image Source="{Binding Source={StaticResource Tools}, Path=Left}" RenderTransformOrigin="0.5, 0.5">
+                <Image.RenderTransform>
+                    <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <Button Grid.Column="2" Grid.Row="2" Name="monthRightButton" Click="monthRightButton_Click"  Style="{StaticResource LeftRightButtonStyle}" VerticalAlignment="Center">
+            <Image Source="{Binding Source={StaticResource Tools}, Path=Right}" RenderTransformOrigin="0.5, 0.5">
+                <Image.RenderTransform>
+                    <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <Grid Grid.Row="2" Grid.Column="1"  Name="calendarGrid1">
+            <Grid.RenderTransform>
+                <TranslateTransform/>
+            </Grid.RenderTransform>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="1" Name="calendarGrid2" Opacity="0" Visibility="Collapsed">
+            <Grid.RenderTransform>
+                <TranslateTransform/>
+            </Grid.RenderTransform>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+    </Grid>
+</UserControl>

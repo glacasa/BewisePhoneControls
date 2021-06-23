@@ -1,0 +1,14 @@
+﻿<Button x:Class="Bewise.Phone.TileButton" x:Name="theButton"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Phone="clr-namespace:Bewise.Phone" mc:Ignorable="d" Width="173" Height="173"
+    Background="{StaticResource PhoneAccentBrush}" Foreground="White" d:DesignHeight="346" d:DesignWidth="173">
+
+    <Button.Template>
+        <ControlTemplate TargetType="Phone:TileButton">
+            <Phone:Tile Text="{TemplateBinding Text}" ImageSource="{TemplateBinding ImageSource}" Description="{TemplateBinding Description}"
+                        Background="{TemplateBinding Background}" Foreground="{TemplateBinding Foreground}" />
+        </ControlTemplate>
+    </Button.Template>
+</Button>

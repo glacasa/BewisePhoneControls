@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="Bewise.Phone.InappToast"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}">    
+        <Grid Background="{StaticResource PhoneAccentBrush}" Name="rootGrid" MouseLeftButtonUp="messageText_MouseLeftButtonUp" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="60">
+            <Grid.Resources>
+                <Storyboard x:Name="ShowStoryboard">
+                    <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="rootGrid">
+                        <EasingDoubleKeyFrame KeyTime="0" Value="-45"/>
+                        <EasingDoubleKeyFrame KeyTime="0:0:0.35" Value="0">
+                            <EasingDoubleKeyFrame.EasingFunction>
+                                <ExponentialEase EasingMode="EaseOut" Exponent="6"/>
+                            </EasingDoubleKeyFrame.EasingFunction>
+                        </EasingDoubleKeyFrame>
+                    </DoubleAnimationUsingKeyFrames>
+                </Storyboard>
+                <Storyboard x:Name="HideStoryboard">
+                    <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="rootGrid">
+                        <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        <EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="60">
+                            <EasingDoubleKeyFrame.EasingFunction>
+                                <ExponentialEase EasingMode="EaseIn" Exponent="6"/>
+                            </EasingDoubleKeyFrame.EasingFunction>
+                        </EasingDoubleKeyFrame>
+                    </DoubleAnimationUsingKeyFrames>
+                </Storyboard>
+            </Grid.Resources>
+            <Grid.Projection>
+                <PlaneProjection RotationX="90"/>
+            </Grid.Projection>
+            <Grid Margin="10">
+                <TextBlock Name="messageText" Text="You are about to delete this item." TextWrapping="NoWrap" HorizontalAlignment="Stretch" MouseLeftButtonUp="messageText_MouseLeftButtonUp" VerticalAlignment="Center"/>
+            </Grid>
+        </Grid>
+    <!--</Popup>-->
+</UserControl>

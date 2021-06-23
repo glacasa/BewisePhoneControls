@@ -1,0 +1,71 @@
+﻿<Phone:TransitioningPage 
+    x:Class="ControlSamples.Views.Facebook"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls" xmlns:Phone="clr-namespace:Bewise.Phone;assembly=Bewise.Phone" FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+
+    <Grid>
+        <Controls:Pivot>
+
+            <Controls:PivotItem Header="connect">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Button Content="Connect" Click="Connect_Click"></Button>
+                    <ListBox x:Name="listFeed" Grid.Row="1">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding From.Name}"></TextBlock>
+                                    <TextBlock Text="{Binding Message}"></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </Controls:PivotItem>
+            <Controls:PivotItem Header="status">
+                <StackPanel>
+                    <TextBox x:Name="tbPublishOnMyWall"></TextBox>
+                    <Button Content="Publish" Click="PostWall_Click"></Button>
+                </StackPanel>
+            </Controls:PivotItem>
+            <Controls:PivotItem Header="write on wall">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBox x:Name="tbPublishOnFriendWall" Grid.Row="0"></TextBox>
+                    <Button x:Name="loadFriends" Content="Load friends" Grid.Row="1" Click="loadFriends_Click"></Button>
+                    <ListBox x:Name="friendList" Grid.Row="2" SelectionChanged="friendList_SelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"></TextBlock>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </Controls:PivotItem>
+            <Controls:PivotItem Header="auto-connect">
+                <StackPanel>
+                    <TextBox x:Name="tbPublishOnMyWallAutoConnect"></TextBox>
+                    <Button Content="Publish" Click="ConnectAndPost_Click"></Button>
+                </StackPanel>
+            </Controls:PivotItem>
+        </Controls:Pivot>
+
+        <Phone:FacebookLoginControl x:Name="facebook" AppID="154224837975096" AppSecret="1c24f3ba7537d68efb218ee81bab232f" />
+    </Grid>
+</Phone:TransitioningPage>
